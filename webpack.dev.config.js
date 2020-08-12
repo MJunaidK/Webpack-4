@@ -1,13 +1,13 @@
 const path =  require('path');
-const TerserPlugin =  require('terser-webpack-plugin');
-const MiniCssExtractPlugin =  require('mini-css-extract-plugin');
+//const TerserPlugin =  require('terser-webpack-plugin'); Don't need 
+//const MiniCssExtractPlugin =  require('mini-css-extract-plugin');
 const {CleanWebpackPlugin}  = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: 'bundle.js', // We don,t need content hash (bundle.[contenthash].js) in devlopemnt because we do not need broswer caching.
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
@@ -24,14 +24,16 @@ module.exports = {
              {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                 //   MiniCssExtractPlugin.loader,
+                    'style-loader',    
                     'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
                 use: [         
-                    MiniCssExtractPlugin.loader,
+                    //MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader',
                     'sass-loader'
                   ]
@@ -57,10 +59,10 @@ module.exports = {
          ]
     },
     plugins: [
-        new TerserPlugin(), // Uses Terser to minify the JS in your project
-        new MiniCssExtractPlugin({  // Extract css into a separate css bundle
+      //  new TerserPlugin(), // Uses Terser to minify the JS in your project
+      /*  new MiniCssExtractPlugin({  // Extract css into a separate css bundle
             filename: 'style.[contenthash].css'
-        }),
+        }), */   // Not needed for development 
         new CleanWebpackPlugin({  //  clean the /dist folder before each build, so that only used files will be generated.
             cleanOnceBeforeBuildPatterns:[
                 '**/*', // Remove all the files from dist folder which is the default folder
