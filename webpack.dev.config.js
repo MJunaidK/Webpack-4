@@ -12,6 +12,11 @@ module.exports = {
         publicPath: ''
     },
     mode: 'development', // Developments vs prod, for any error will refer to bundle, dev mode uses sourcemap and error will go to source file.
+    devServer: {
+        contentBase:  path.resolve(__dirname, './dist'),
+        index: 'index.html',
+        port: 9000
+    },
     module: {
          rules: [
             
