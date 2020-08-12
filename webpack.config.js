@@ -47,6 +47,12 @@ module.exports = {
                     } 
                 }
 
+            },
+            {
+                test: /\.hbs$/,
+                use: [
+                    'handlebars-loader'
+                ]
             }
          ]
     },
@@ -63,10 +69,10 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'Hello World',
+            template: 'src/index.hbs',
            // filename: 'subfolder/custom_filename.html',
-            meta:{
-                description: 'Some description'
-            }
+             description: 'Some description'
+            
         })
     
     ]
