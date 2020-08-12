@@ -11,7 +11,7 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
-    mode: 'none',
+    mode: 'development', // Developments vs prod, for any error will refer to bundle, dev mode uses sourcemap and error will go to source file.
     module: {
          rules: [
             
