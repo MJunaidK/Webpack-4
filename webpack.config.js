@@ -61,7 +61,13 @@ module.exports = {
                 path.join(process.cwd(), 'build/**/*') // For removing outside dist provide the absolute path.Removes all the files from build folder
             ]
         }),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            title: 'Hello World',
+           // filename: 'subfolder/custom_filename.html',
+            meta:{
+                description: 'Some description'
+            }
+        })
     
     ]
 }
