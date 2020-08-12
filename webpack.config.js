@@ -57,17 +57,17 @@ module.exports = {
          ]
     },
     plugins: [
-        new TerserPlugin(),
-        new MiniCssExtractPlugin({
+        new TerserPlugin(), // Uses Terser to minify the JS in your project
+        new MiniCssExtractPlugin({  // Extract css into a separate css bundle
             filename: 'style.[contenthash].css'
         }),
-        new CleanWebpackPlugin({
+        new CleanWebpackPlugin({  //  clean the /dist folder before each build, so that only used files will be generated.
             cleanOnceBeforeBuildPatterns:[
                 '**/*', // Remove all the files from dist folder which is the default folder
                 path.join(process.cwd(), 'build/**/*') // For removing outside dist provide the absolute path.Removes all the files from build folder
             ]
         }),
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({ // Generate the HTML file during the build process
             title: 'Hello World',
             template: 'src/index.hbs',
            // filename: 'subfolder/custom_filename.html',
