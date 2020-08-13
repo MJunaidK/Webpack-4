@@ -3,6 +3,7 @@ import HelloWorldButton from './components/hello-world-btn/hello-world-button';
 import addImage from './add-image';
 import Heading from './components/Header/heading'
 import _ from 'lodash';
+import React from 'react';
 
 const heading = new Heading();
 heading.render(_.upperFirst('hello world'));

@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        'hello-world': './src/index.js',
+        'hello-world': './src/hello-world.js',
         'kiwi': './src/kiwi.js'
     },
     output: {

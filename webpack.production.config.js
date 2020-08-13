@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        'hello-world': './src/index.js',
+        'hello-world': './src/hello-world.js',
         'kiwi': './src/kiwi.js'
     },
     output: {
@@ -17,7 +17,9 @@ module.exports = {
     mode: 'production', // Developments vs prod, for any error will refer to bundle, dev mode uses sourcemap and error will go to source file.
     optimization: {
         splitChunks: {
-            chunks: 'all'
+            chunks: 'all',
+            minSize: 10000,
+            automaticNameDelimiter: '_'
         } 
     },
     module: {
