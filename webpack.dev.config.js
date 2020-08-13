@@ -10,7 +10,7 @@ module.exports = {
         'kiwi': './src/kiwi.js'
     },
     output: {
-        filename: 'bundle.js', // We don,t need content hash (bundle.[contenthash].js) in devlopemnt because we do not need broswer caching.
+        filename: '[name].bundle.js', // We don,t need content hash (bundle.[contenthash].js) in devlopemnt because we do not need broswer caching.
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
@@ -78,11 +78,20 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({ // Generate the HTML file during the build process
+            filename: 'hello-world.html',
+            chunks: ['hello-world'],
             title: 'Hello World',
-            template: 'src/index.hbs',
+            template: 'src/page-template.hbs',
            // filename: 'subfolder/custom_filename.html',
-             description: 'Some description'
-            
+             description: 'Some descriptionHello World'
+        }),
+        new HtmlWebpackPlugin({ // Generate the HTML file during the build process
+            filename: 'kiwi.html',
+            chunks: ['kiwi'],
+            title: 'kiwi',
+            template: 'src/page-template.hbs',
+           // filename: 'subfolder/custom_filename.html',
+             description: 'Kiwi'
         })
     
     ]
