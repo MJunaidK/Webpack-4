@@ -15,6 +15,11 @@ module.exports = {
         publicPath: ''
     },
     mode: 'production', // Developments vs prod, for any error will refer to bundle, dev mode uses sourcemap and error will go to source file.
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        } 
+    },
     module: {
          rules: [
             
@@ -72,7 +77,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({ // Generate the HTML file during the build process
             filename: 'hello-world.html',
-            chunks:['hello-world'],
+            chunks:['hello-world', 'vendors~hello-world~kiwi'],
             title: 'Hello World',
             template: 'src/page-template.hbs',
            // filename: 'subfolder/custom_filename.html',
@@ -81,7 +86,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({ // Generate the HTML file during the build process
             filename: 'kiwi.html',
-            chunks:['kiwi'],
+            chunks:['kiwi', 'vendors~hello-world~kiwi'],
             title: 'Kiwi',
             template: 'src/page-template.hbs',
            // filename: 'subfolder/custom_filename.html',
