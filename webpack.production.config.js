@@ -71,10 +71,21 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({ // Generate the HTML file during the build process
+            filename: 'hello-world.html',
+            chunks:['hello-world'],
             title: 'Hello World',
-            template: 'src/index.hbs',
+            template: 'src/page-template.hbs',
            // filename: 'subfolder/custom_filename.html',
-             description: 'Some description'
+             description: 'Hello world'
+            
+        }),
+        new HtmlWebpackPlugin({ // Generate the HTML file during the build process
+            filename: 'kiwi.html',
+            chunks:['kiwi'],
+            title: 'Kiwi',
+            template: 'src/page-template.hbs',
+           // filename: 'subfolder/custom_filename.html',
+             description: 'Kiwi '
             
         })
     
