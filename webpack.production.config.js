@@ -5,9 +5,12 @@ const {CleanWebpackPlugin}  = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/index.js',
+        'kiwi': './src/kiwi.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[contenthash]bundle.js',
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
@@ -59,7 +62,7 @@ module.exports = {
     plugins: [
         //new TerserPlugin(), // Uses Terser to minify the JS in your project. In production this plugin is included by default.
         new MiniCssExtractPlugin({  // Extract css into a separate css bundle
-            filename: 'style.[contenthash].css'
+            filename: '[name].[contenthash].css'
         }),
         new CleanWebpackPlugin({  //  clean the /dist folder before each build, so that only used files will be generated.
             cleanOnceBeforeBuildPatterns:[

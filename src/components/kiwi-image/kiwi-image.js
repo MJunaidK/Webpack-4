@@ -1,4 +1,4 @@
-import Kiwi from './kiwi.jpeg'
+import Kiwi from './kiwi.png'
 import './kiwi-image.scss'
 class KiwiImage{
 

@@ -5,7 +5,10 @@ const {CleanWebpackPlugin}  = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/index.js',
+        'kiwi': './src/kiwi.js'
+    },
     output: {
         filename: 'bundle.js', // We don,t need content hash (bundle.[contenthash].js) in devlopemnt because we do not need broswer caching.
         path: path.resolve(__dirname, './dist'),
