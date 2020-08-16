@@ -2,11 +2,14 @@ import helloWorld from './components/hello-world-btn/hello-world-button.js';
 import HelloWorldButton from './components/hello-world-btn/hello-world-button';
 import addImage from './add-image';
 import Heading from './components/Header/heading'
-import _ from 'lodash';
 import React from 'react';
 
 const heading = new Heading();
-heading.render(_.upperFirst('hello world'));
+
+import(/* webpackChunkName: "lodash" */  'lodash').then(({ default: _ }) => {
+    heading.render(_.upperFirst('hello world'));    
+}).catch(error => 'An error occurred while loading the component');
+
 //const heading2 = new Heading();
 //heading2.render();
 
