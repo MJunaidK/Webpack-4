@@ -23,4 +23,4 @@ if(process.env.NODE_ENV === 'production'){
     console.log('Development Mode');
 }
 
-helloWorldButton.methodThatDoesNotExist();
+//helloWorldButton.methodThatDoesNotExist();

@@ -10,9 +10,9 @@ module.exports = {
         'kiwi': './src/kiwi.js'
     },
     output: {
-        filename: '[name].[contenthash]bundle.js',
-        path: path.resolve(__dirname, './dist'),
-        publicPath: ''
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/static/'
     },
     mode: 'production', // Developments vs prod, for any error will refer to bundle, dev mode uses sourcemap and error will go to source file.
     optimization: {
