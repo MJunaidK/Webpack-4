@@ -4,6 +4,11 @@ import _ from 'lodash';
 import React from 'react';
 
  const heading = new Heading();
- heading.render(_.upperFirst('kiwi'));
+
+ import(/* webpackChunkName: "lodash" */  'lodash').then(({ default: _ }) => {
+    heading.render(('kiwi'));
+}).catch(error => 'An error occurred while loading the component');
+
+
  const kiwiImage = new KiwiImage();
  kiwiImage.render();
