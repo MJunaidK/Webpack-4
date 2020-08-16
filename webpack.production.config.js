@@ -38,13 +38,24 @@ module.exports = {
                     'css-loader'
                 ]
             },
-            {
+               {
                 test: /\.scss$/,
-                use: [         
+                use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [
+                                    require('precss'),
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },
                     'sass-loader'
-                  ]
+                ]
             },
             {
                 test: /\.js$/,
