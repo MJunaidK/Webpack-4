@@ -63,6 +63,18 @@ module.exports = {
                 use: [
                     'handlebars-loader'
                 ]
+            },
+            {
+                test: /\.(woff2|woff|ttf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]', // This will preserve the file name nad extension when generatinf file in the dist folder.
+                            outputPath: 'fonts/' // This will create a subfolder inside dist folder.
+                        }
+                    }
+                ]
             }
          ]
     },
