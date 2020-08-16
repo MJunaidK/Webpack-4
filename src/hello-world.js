@@ -4,6 +4,8 @@ import addImage from './add-image';
 import Heading from './components/Header/heading'
 import React from 'react';
 import './index.scss';
+import 'bootstrap'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const heading = new Heading();
 
