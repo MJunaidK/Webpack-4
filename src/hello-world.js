@@ -1,4 +1,6 @@
 import helloWorld from './components/hello-world-btn/hello-world-button.js';
+import {library, dom} from '@fortawesome/fontawesome-svg-core';
+import {faSpinner} from '@fortawesome/free-solid-svg-icons';
 import HelloWorldButton from './components/hello-world-btn/hello-world-button';
 import addImage from './add-image';
 import Heading from './components/Header/heading'
@@ -6,6 +8,9 @@ import React from 'react';
 import './index.scss';
 import 'bootstrap'; 
 //import 'bootstrap/dist/css/bootstrap.min.css';
+
+library.add(faSpinner);
+dom.watch();
 
 const heading = new Heading();
 
